@@ -56,6 +56,13 @@ class CheckoutPage {
 async ClickonPlaceOrder () {
     await this.PlaceOrderButton.click();
 }
+
+async VerifyPandoraProduct(){
+    const AddedtoCart = await this.page.getByText("Added").textContent();
+    console.log(AddedtoCart);
 }
+
+}
+
 
 module.exports = { CheckoutPage };

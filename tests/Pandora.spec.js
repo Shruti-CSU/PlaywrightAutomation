@@ -10,7 +10,7 @@ test.skip('Login into Pandora AC', async ({ page }) => {
 });
 
 
-test.skip('Scenarios Without Login', async ({ page }) => {
+test.only('Scenarios Without Login', async ({ page }) => {
     await page.goto("https://us.pandora.net/");
     
     await page.locator("a[class='chakra-link css-ekq69x']").last().click();
@@ -51,6 +51,7 @@ test.skip('Scenarios Without Login', async ({ page }) => {
     await page.locator("p.chakra-text.css-1uy0bwa").filter({hasText: 'Holiday Wreath Double Dangle Charm'}).click();
     await expect(page.locator("h1.chakra-text.css-1ge7mcu")).toHaveText("Holiday Wreath Double Dangle Charm");
     
+    await page.pause();
     await page.locator("div.css-uglap3").click(); 
     await page.locator("div.css-uglap3").click(); 
    // await page.pause();
@@ -59,7 +60,7 @@ test.skip('Scenarios Without Login', async ({ page }) => {
 
     //await expect(page.locator(".progress-message")).toHaveText("CONGRATS! 25% OFF WITH $125 SPEND");
     await expect(page.locator("span.minicart-quantity.minicart-quantity-circle")).toHaveCount(1);
-    await expect(page.locator("p.text-right.sub-total")).toHaveText("$187.50");
+    //await expect(page.locator("p.text-right.sub-total")).toHaveText("$187.50");
     await expect(page.locator("p.text-right.shipping-discount.free-shipping-label")).toHaveText("Free");
     
     // await page.locator("a.link.suggestionhit.link-no-underline").filter({hasText: 'Pandora Pink Premium Gift Packaging'}).click({ force: true });

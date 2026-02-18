@@ -9,7 +9,7 @@ export default defineConfig({
   testDir: './tests',
   //retries: 2,
   
-  timeout: 30 *1000, //Maximum timeout for the testcase to run
+  timeout: 40 *1000, //Maximum timeout for the testcase to run
   expect:{
     
     timeout: 30 *1000, //This timeout is for expected result

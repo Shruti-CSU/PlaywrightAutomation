@@ -259,24 +259,57 @@ test('Calender Test', async ({page})=>{
 
 // })
 
+test('Login Practice Test', async ( {page})=>
+{
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    await page.locator("#username").fill("rahulshettyacademy");
+    await page.locator("#password").fill("Learning@830$3mK2");
+    await page.locator(".radiotextsty").getByText("User").click();
+    await page.getByRole('button', { name: 'Okay' }).click();
+    await page.locator("select.form-control").selectOption("Teacher");
+    await page.locator("span.text-white").click();
+    await page.locator("#signInBtn").click();
+   
+});
 
 
-test('Generetated from codegen test', async ({ page }) => {
-  await page.goto('https://rahulshettyacademy.com/angularpractice/');
-  await page.getByRole('link', { name: 'Shop' }).click();
-  await page.getByRole('link', { name: 'ProtoCommerce Home' }).click();
-  await expect(page.getByRole('list')).toContainText('Shop');
-  await page.getByRole('link', { name: 'Shop' }).click();
-  await expect(page.locator('h1')).toContainText('Shop Name');
-  await page.locator('app-card').filter({ hasText: 'Samsung Note 8 $24.99 Lorem' }).getByRole('button').click();
-  await page.getByText('Checkout ( 1 ) (current)').click();
-  await expect(page.locator('h4')).toContainText('Samsung Note 8');
-  await page.getByRole('button', { name: 'Checkout' }).click();
-  await page.getByRole('textbox', { name: 'Please choose your delivery' }).click();
-  await page.getByRole('textbox', { name: 'Please choose your delivery' }).fill('uni');
-  await page.getByText('United States of America').click();
-  await page.getByText('I agree with the term &').click();
-  await expect(page.getByRole('button')).toContainText('Purchase');
-  await page.getByRole('button', { name: 'Purchase' }).click();
-  await expect(page.getByRole('strong')).toContainText('Success!');
+test.only('Scenarios Without Login', async ({ page }) => {
+    await page.goto("https://us.pandora.net/");
+    
+    await page.locator("a[class='chakra-link css-ekq69x']").last().click();
+    await page.locator("p[itemprop='name']").filter().getByText("Disney Stitch Rose Murano Glass Charm").click();
+    await expect(page.locator("h1[class='chakra-text css-1ge7mcu']")).toHaveText("Disney Stitch Rose Murano Glass Charm");
+
+    await page.locator("a[data-testid='moreLinkDetails']").click();
+
+    await expect(page.locator("h2[class='chakra-text css-leune8']").first()).toHaveText("Sterling silver");
+
+    const ProductID = await page.locator(".chakra-text.css-812xwp").textContent();
+    console.log(ProductID);
+
+    await page.locator(".chakra-link.css-beydtl").click();
+
+    await expect(page.locator("p[data-auto='addToBagDefaultProductPrice']")).toHaveText("$98.00");
+
+    await page.pause();
+    await page.locator("span.chakra-text.css-uglap3").click();
+    await page.locator("#postalCode").fill("44114");
+    await page.locator("button.chakra-button.css-imbl3t").click();
+
+    await page.locator(".css-183oxd5").first().waitFor();
+    
+    const StoreName = page.locator(".css-183oxd5").first();
+    console.log(StoreName.textContent());
+
+    await StoreName.getByRole("button", {name: 'SELECT STORE'}).click();
+
+    await expect(page.locator("p.chakra-text.css-13bpz2u").first()).toHaveText("Pandora @ Beachwood Place Mall");
+
+    await page.locator("p.chakra-text.css-1uy0bwa").filter({hasText: 'Disney Stitch Holiday Charm'}).click();
+    await page.screenshot('Pandora.png')
+
+    await page.locator("div.css-uglap3").click();
+    const AddedtoCart = await page.getByText("Added").textContent();
+    console.log(AddedtoCart);
+
 });

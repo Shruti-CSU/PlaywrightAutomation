@@ -38,3 +38,22 @@ test('@e2e ecommerce Site', async ({page})=>
     console.log(dataset.ProductName);
 
 });
+
+test.only('Pandora Test', async ({page})=> {
+
+    const pomanager = new POManager(page);
+    //Navigate to Site
+    const loginPage  = pomanager.getLoginPage();
+    await loginPage.Pandora();
+
+    //SelectProduct and Store
+    const SelectProductPage = pomanager.getDashboardPage();
+    await SelectProductPage.SelectPandoraProduct();
+    await SelectProductPage.SelectStore();
+    await SelectProductPage.SelectThirdProduct();
+
+    //Verify Product
+    const VerifyProduct = pomanager.getCheckoutPage();
+    await VerifyProduct.VerifyPandoraProduct();
+
+});

@@ -2,10 +2,10 @@
   "cookies": [
     {
       "name": "saathiya_session",
-      "value": "52961a941118355c2eabcc9359e5f50c31d4631b1cf8a4700c26d34277c1f00f",
+      "value": "5a17d771bd524a7b8502ade26ef5cfb7b52fd41cadc56b4d246f2976572fbd41",
       "domain": "saathiya-web.vercel.app",
       "path": "/",
-      "expires": 1771354852.705,
+      "expires": 1771355619.338,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"

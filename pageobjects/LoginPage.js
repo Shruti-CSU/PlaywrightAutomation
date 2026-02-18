@@ -20,6 +20,10 @@ async GOTO (page) {
     await this.page.goto("https://rahulshettyacademy.com/client/#/auth/login");
 }
 
+async Pandora(page) {
+    await this.page.goto("https://us.pandora.net/");
+}
+
 }
 
 module.exports = {LoginPage};
