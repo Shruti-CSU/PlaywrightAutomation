@@ -1,1 +1,3 @@
 # PlaywrightAutomation
+
+Developed a robust Playwright automation framework leveraging POM, Mocha, and Cucumber (BDD) with Allure reporting for detailed, interactive test insights. Centralized page objects ensure maintainability, while feature-driven Cucumber scenarios improve readability and collaboration. Integrated an AI agent with LLM module for dynamic test generation, smart suggestions, and enhanced coverage. Supports multi-browser testing, CI/CD pipelines, and parallel execution to accelerate testing cycles. Designed for scalability, reusability, and quick debugging, enabling efficient end-to-end test automation for complex web applications.
